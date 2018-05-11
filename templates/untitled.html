@@ -1,0 +1,13 @@
+{% extends "generic.html" %}
+
+{% block topLeft %}
+
+  {% if session['logged_in'] %}
+    Welcome, {{session['username']}}!
+  {% endif %}
+
+  {% if not session['logged_in'] %}
+    HousingPairup
+  {% endif %}
+
+{% endblock %}

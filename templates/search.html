@@ -1,0 +1,156 @@
+<!-- extend generic layout -->
+{% extends "generic.html" %}
+
+{% block topLeft %}
+
+  {% if session['logged_in'] %}
+    Welcome, {{session['username']}}!
+  {% endif %}
+
+  {% if not session['logged_in'] %}
+    HousingPairup
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+	<form method="post" name = "search">
+	<h2> Social Questions </h2>
+
+	  <div class = "box">
+	      {{ form.hidden_tag() }}
+	      <header>
+	        <h3> How outgoing would your ideal roommate be?</h3>
+	      </header>
+
+	      {{ form.outgoing }}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How often would your ideal roommate party?</h3>
+	      </header>
+
+	      {{form.party}}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How often do you plan to have guests over?</h3>
+	      </header>
+
+	      {{form.guestOver}}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How often would your ideal roommate be in his/her room?</h3>
+	      </header>
+
+	      {{form.roomtime}}
+
+
+	  </div>
+	<h2>Habit Questions</h2>
+	
+
+	  <div class = "box">
+	      {{ form.hidden_tag() }}
+	      <header>
+	        <h3> How often would your ideal roommate drink?</h3>
+	      </header>
+
+	      {{ form.drinks }}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How often would your ideal roommate smoke?</h3>
+	      </header>
+
+	      {{form.smokes}}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How often would your ideal roommate study?</h3>
+	      </header>
+
+	      {{form.studyAmount}}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> What time would your ideal roommate go to bed?</h3>
+	      </header>
+
+	      {{form.timeBed}}
+
+
+	  </div>
+	<h2>Interest Questions</h2>
+	
+
+	  <div class = "box">
+	      {{ form.hidden_tag() }}
+	      <header>
+	        <h3> How much interest would your ideal roommate be into sports? </h3>
+	      </header>
+
+	      {{ form.sports }}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How much interest would your ideal roommate have in video games?</h3>
+	      </header>
+
+	      {{form.games}}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How often would your ideal roommate watch tv?</h3>
+	      </header>
+
+	      {{form.tv}}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How often would your ideal roommate cook?</h3>
+	      </header>
+
+	      {{form.cooking}}
+
+
+	  </div>
+	<h2>Lifestyle Questions</h2>
+	
+
+	  <div class = "box">
+	      {{ form.hidden_tag() }}
+	      <header>
+	        <h3> How clean would your ideal roommate be? </h3>
+	      </header>
+
+	      {{ form.cleanliness }}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> What room temperature would your ideal roommate prefer? </h3>
+	      </header>
+
+	      {{form.roomTemp}}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> What kind of pets would your ideal roommate have?</h3>
+	      </header>
+
+	      {{form.pets}}
+	      <hr class = "minor">
+
+	      <header>
+	        <h3> How would your ideal roommate view sharing items?</h3>
+	      </header>
+
+	      {{form.sharing}}
+
+
+	  </div>
+	  <p><input type="submit" value="Complete Survey"></p>
+
+	</form>
+{% endblock %}

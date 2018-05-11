@@ -1,0 +1,49 @@
+<!-- extend generic layout -->
+{% extends "generic.html" %}
+
+{% block topLeft %}
+
+  {% if session['logged_in'] %}
+    Welcome, {{session['username']}}!
+  {% endif %}
+
+  {% if not session['logged_in'] %}
+    HousingPairup
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+<section id="two" class="wrapper style1 special">
+	<div class="inner">
+		<header>
+			<h2>Here are your matches!</h2>
+			{% if matches %}
+				<p>These are your best.</p>
+			{% endif %}
+
+			{% if matches == None %}
+				<p> We have no matches for you :( </p>
+			{% endif %}
+		</header>
+
+		<div class="flex flex-3">
+			{% if matches %}
+				{% for match in matches %}
+
+					<div class="box person">
+						<div class="image round">
+							<img src="/static/images/pic03.jpg" alt="Person 1" />
+						</div>
+						<h3>{{match[0]}}</h3>
+						<p>{{match[1]}} {{match[2]}}</p>
+					</div>		
+
+				{% endfor %}	
+			{% endif %}
+
+
+		</div>
+	</div>
+</section>
+{% endblock %}

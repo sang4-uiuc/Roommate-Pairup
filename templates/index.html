@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+{% extends "generic.html" %}
+
+{% block topLeft %}
+
+  {% if session['logged_in'] %}
+    Welcome, {{session['username']}}!
+  {% endif %}
+
+  {% if not session['logged_in'] %}
+    HousingPairup
+  {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<section id="banner">
+	<h1>Welcome to HousingPairup</h1>
+
+</section>
+
+<!-- USER NOT LOGGED IN AT ALL -->
+{% if not session['logged_in'] %}
+	<!-- Three -->
+		<section id="three" class="wrapper special">
+			<div class="inner">
+				<header class="allign-center">
+					<h2>Login or Register To Get Started</h2>
+				</header>
+				<div class="flex flex-2">
+					<article>
+						<div class="image fit">
+							<img src="/static/images/alma.jpg" alt="Pic 01" />
+						</div>
+						<header>
+							<h3>We Provide a Short Survey</h3>
+						</header>
+						<p>To we can get to know you better and provide you with a list of ideal roommates using our roommate-matching algorithm.  Personal information will not be shared with others.</p>
+						<footer>
+							<a href="/login" class="button special">Login </a>
+						</footer>
+
+					</article>
+					<article>
+						<div class="image fit">
+							<img src="/static/images/quad.jpg" alt="Pic 02" />
+						</div>
+						<header>
+							<h3>So You Can Instantly View Your Matches</h3>
+						</header>
+						<p>After you take your survey, we do all the dirty work of finding you your suggest roommates.  We will provide you with your top 5 suggested roommates based off your survey responses.</p>
+						<footer>
+							<a href="/signUp" class="button special">Register</a>
+						</footer>
+
+					</article>
+				</div>
+			</div>
+		</section>
+{% endif %}
+
+<!-- USER LOGGED IN AND HAS TAKEN SURVEY -->
+{% if session['logged_in'] and session['takenSurvey'] %}
+	<!-- Three -->
+		<section id="three" class="wrapper special">
+			<div class="inner">
+				<header class="allign-center">
+					<h2>View Matches/Retake Survey/Search</h2>
+				</header>
+				<div class="flex flex-3">
+					<article>
+						<div class="image fit">
+							<img src="/static/images/krush.jpg" alt="Pic 02" />
+						</div>
+						<header>
+							<h3>View Your Matches</h3>
+						</header>
+						<p>These are the people we thought would be great rommmates for you.</p>
+						<footer>
+							<a href="/matches" class="button special">View Matches</a>
+						</footer>
+
+					</article>
+
+					<article>
+						<div class="image fit">
+							<img src="/static/images/aerial.jpg" alt="Pic 01" />
+						</div>
+						<header>
+							<h3>Retake Survey</h3>
+						</header>
+						<p>Feel free to retake your survey at any time, we will update your matches.</p>
+						<footer>
+							<a href="/survey" class="button special">Retake Survey</a>
+						</footer>
+
+					</article>
+
+					<article>
+						<div class="image fit">
+							<img src="/static/images/union.jpg" alt="Pic 01" />
+						</div>
+						<header>
+							<h3>Search</h3>
+						</header>
+						<p> Find your ideal roommate  </p>
+						<footer>
+							<a href="/search" class="button special">Search For Roommates</a>
+						</footer>
+
+					</article>
+
+
+				</div>
+			</div>
+		</section>
+{% endif %}
+
+{% if session['logged_in'] and not session['takenSurvey'] %}
+	<!-- Three -->
+		<section id="three" class="wrapper special">
+			<div class="inner">
+				<header class="allign-center">
+					<h2>Take Our Short Survey</h2>
+				</header>
+				<div class="flex flex-2">
+					<article>
+						<div class="image fit">
+							<img src="/static/images/engineering.jpg" alt="Pic 02" />
+						</div>
+						<header>
+							<h3>Take Survey</h3>
+						</header>
+						<p>To we can get to know you better and provide you with a list of ideal roommates using our roommate-matching algorithm.  Personal information will not be shared with others.</p>
+						
+						<footer>
+							<a href="/survey" class="button special">Take Survey</a>
+						</footer>
+
+					</article>
+
+					<article>
+						<div class="image fit">
+							<img src="/static/images/grainger.jpg" alt="Pic 02" />
+						</div>
+						<header>
+							<h3>Update Profile</h3>
+						</header>
+						<p>Change your password or email, or delete your account.</p>
+						
+						<footer>
+							<a href="/updateProfile" class="button special">Update Profile</a>
+						</footer>
+
+					</article>
+
+
+				</div>
+			</div>
+		</section>
+{% endif %}
+
+
+
+
+
+{% endblock %}
+
+		

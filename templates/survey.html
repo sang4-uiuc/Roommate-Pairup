@@ -1,0 +1,169 @@
+<!-- extend generic layout -->
+{% extends "generic.html" %}
+
+
+{% block topLeft %}
+
+  {% if session['logged_in'] %}
+    Welcome, {{session['username']}}!
+  {% endif %}
+
+  {% if not session['logged_in'] %}
+    HousingPairup
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+<form method="post" name = "survey">
+<h2> Social Questions </h2>
+
+<div class="6u 12u$(xsmall)">
+  {{ form.check_social}} {{form.check_social.label}}
+</div>
+
+  <div class = "box">
+      {{ form.hidden_tag() }}
+      <header>
+        <h3> How outgoing are you?</h3>
+      </header>
+
+      {{ form.outgoing }}
+      <hr class = "minor">
+
+      <header>
+        <h3> How often do you party?</h3>
+      </header>
+
+      {{form.party}}
+      <hr class = "minor">
+
+      <header>
+        <h3> How often do you plan to have guests over?</h3>
+      </header>
+
+      {{form.guestOver}}
+      <hr class = "minor">
+
+      <header>
+        <h3> Are you always out and about, or do you tend to hang around in your room a lot?</h3>
+      </header>
+
+      {{form.roomtime}}
+
+
+  </div>
+<h2>Habit Questions</h2>
+<div class="6u 12u$(xsmall)">
+  {{ form.check_habit}} 
+  {{form.check_habit.label}}
+</div>
+
+  <div class = "box">
+      {{ form.hidden_tag() }}
+      <header>
+        <h3> How often do you drink?</h3>
+      </header>
+
+      {{ form.drinks }}
+      <hr class = "minor">
+
+      <header>
+        <h3> How often do you smoke?</h3>
+      </header>
+
+      {{form.smokes}}
+      <hr class = "minor">
+
+      <header>
+        <h3> How often do you plan to study?</h3>
+      </header>
+
+      {{form.studyAmount}}
+      <hr class = "minor">
+
+      <header>
+        <h3> What time do you typically go to bed?</h3>
+      </header>
+
+      {{form.timeBed}}
+
+
+  </div>
+<h2>Interest Questions</h2>
+<div class="6u 12u$(xsmall)">
+  {{ form.check_interest}} {{form.check_interest.label}}
+</div>
+
+  <div class = "box">
+      {{ form.hidden_tag() }}
+      <header>
+        <h3> How much are you into sports?</h3>
+      </header>
+
+      {{ form.sports }}
+      <hr class = "minor">
+
+      <header>
+        <h3> How much are you into video games?</h3>
+      </header>
+
+      {{form.games}}
+      <hr class = "minor">
+
+      <header>
+        <h3> How often do you watch TV?</h3>
+      </header>
+
+      {{form.tv}}
+      <hr class = "minor">
+
+      <header>
+        <h3> How often do you plan on cooking?</h3>
+      </header>
+
+      {{form.cooking}}
+
+
+  </div>
+<h2>Lifestyle Questions</h2>
+<div class="6u 12u$(xsmall)">
+  {{ form.check_lifestyle}} {{form.check_lifestyle.label}}
+</div>
+
+  <div class = "box">
+      {{ form.hidden_tag() }}
+      <header>
+        <h3> How clean are you? </h3>
+      </header>
+
+      {{ form.cleanliness }}
+      <hr class = "minor">
+
+      <header>
+        <h3> What is your preferred room temperature?</h3>
+      </header>
+
+      {{form.roomTemp}}
+      <hr class = "minor">
+
+      <header>
+        <h3> Do you plan on having pets?</h3>
+      </header>
+
+      {{form.pets}}
+      <hr class = "minor">
+
+      <header>
+        <h3> How do you feel about sharing items between roommates?</h3>
+      </header>
+
+      {{form.sharing}}
+
+
+  </div>
+  <p><input type="submit" value="Complete Survey"></p>
+
+</form>
+
+{% endblock %}

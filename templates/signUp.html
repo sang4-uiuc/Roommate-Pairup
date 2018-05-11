@@ -1,0 +1,181 @@
+<!-- extend generic layout -->
+{% extends "generic.html" %}
+
+{% block topLeft %}
+
+  {% if session['logged_in'] %}
+    Welcome, {{session['username']}}!
+  {% endif %}
+
+  {% if not session['logged_in'] %}
+    HousingPairup
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+  <form method="post" name = "signUp">
+      {{ form.hidden_tag() }}
+      <!-- {{form.profilePic}} -->
+      <p>
+          <br>
+          <div class="6u 12u$(xsmall)">
+            {{ form.Net_ID(placeholder="NetID") }}
+          </div>
+          {% for error in form.Net_ID.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p> 
+          <br>
+          <div class="6u 12u$(xsmall)">
+            {{ form.Password(placeholder="Password") }}
+          </div>
+          {% for error in form.Password.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <div class="6u 12u$(xsmall)">
+            {{ form.rePassword(placeholder="Re-type Password") }}
+          </div>
+          {% for error in form.rePassword.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <div class="6u 12u$(xsmall)">
+            {{ form.Name(placeholder="Full Name") }}
+          </div>
+          {% for error in form.Name.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <div class="6u 12u$(xsmall)">
+            {{ form.Email(placeholder="Email") }}
+          </div>
+          {% for error in form.Email.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+
+      <p>
+          <br>
+          <div class="6u$ 12u$(xsmall)">
+            <div class="select-wrapper">
+              {{ form.Age }}
+            </div>
+          </div>
+          {% for error in form.Age.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <h2>I plan on living in a:</h2>
+            <div class="select-wrapper">
+              {{ form.dormApt }}
+            </div>
+          {% for error in form.dormApt.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <div class="6u$ 12u$(xsmall)">
+
+            <div class="select-wrapper">
+              {{ form.Race }}
+            </div>
+          </div>
+          {% for error in form.Race.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <div class="6u$ 12u$(xsmall)">
+
+            <div class="select-wrapper">
+              {{ form.Gender }}
+            </div>
+          </div>
+          {% for error in form.Gender.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <div class="6u$ 12u$(xsmall)">
+
+            <div class="select-wrapper">
+              {{ form.Major(placeholder = "Major") }}
+            </div>
+          </div>
+          {% for error in form.Major.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <div class="6u 12u$(xsmall)">
+            {{ form.Facebook(placeholder="Facebook Profile (None if you don't have one)") }}
+          </div>
+          {% for error in form.Facebook.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <br>
+          <div class="6u 12u$(xsmall)">
+            {{ form.Twitter(placeholder="Twitter Profile (None if you don't have one)") }}
+          </div>
+          {% for error in form.Twitter.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <input type="submit" value="Complete Profile" class = "button icon fa-download">
+  </form>
+</div>
+{% endblock %}

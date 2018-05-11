@@ -1,0 +1,82 @@
+<!-- extend generic layout -->
+{% extends "generic.html" %}
+
+{% block topLeft %}
+
+  {% if session['logged_in'] %}
+    Welcome, {{session['username']}}!
+  {% endif %}
+
+  {% if not session['logged_in'] %}
+    HousingPairup
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+  <form method="post" name = "updateProfile">
+      {{ form.hidden_tag() }}
+      <p> 
+          <div class="6u 12u$(xsmall)">
+            {{ form.oldPassword(placeholder="Type your old password to confirm your identity") }}
+          </div>
+          {% for error in form.oldPassword.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+
+
+      <p>
+          <div class="6u 12u$(xsmall)">
+            {{ form.newPassword(placeholder="New Password") }}
+          </div>
+          {% for error in form.newPassword.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <div class="6u 12u$(xsmall)">
+            {{ form.rePassword(placeholder="Confirm New Password") }}
+          </div>
+          {% for error in form.rePassword.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+
+      <p>
+          <div class="6u 12u$(xsmall)">
+            {{ form.Email(placeholder="New Email") }}
+          </div>
+          {% for error in form.Email.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+      <p>
+          <div class="6u 12u$(xsmall)">
+            {{ form.delete }} {{form.delete.label}}
+          </div>
+<!--           <input type = "checkbox" id = "human" name = "human" checked>
+          <label for = "human">
+          "test"
+          </label>
+ -->          {% for error in form.delete.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+
+      </p>
+
+
+
+      <input type="submit" value="Finish Updating Profile" class = "button icon fa-download">
+  </form>
+</div>
+{% endblock %}

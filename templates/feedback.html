@@ -1,0 +1,52 @@
+<!-- extend generic layout -->
+{% extends "generic.html" %}
+
+{% block topLeft %}
+
+  {% if session['logged_in'] %}
+    Welcome, {{session['username']}}!
+  {% endif %}
+
+  {% if not session['logged_in'] %}
+    HousingPairup
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+  <form method="post" name = "login">
+      {{ form.hidden_tag() }}
+      <p>
+          <br>
+          <div class="4u 12u$(xsmall)">
+            {{ form.netid1(placeholder="Your Net_ID") }}
+          </div>
+          {% for error in form.netid1.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+      </p>
+
+      <p> 
+          <div class="4u 12u$(xsmall)">
+            {{ form.netid2(placeholder="Your Roommate's Net_ID") }}
+          </div>
+          {% for error in form.netid2.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+      </p>
+
+      <p> 
+          <div class="4u 12u$(xsmall)">
+            {{ form.rating }}
+          </div>
+          {% for error in form.rating.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+      </p>
+
+
+      <input type="submit" value="Leave Feedback">
+  </form>
+</div>
+{% endblock %}
